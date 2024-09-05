@@ -4,16 +4,16 @@ import { defineSiteConfig } from 'valaxy'
 export default defineSiteConfig({
   
   lang: 'zh-CN',
-  url: 'http://kiyotakali.top/',
+  url: 'http://www.kiyotakali.top/',
   // 站点标题
-  title: 'void’s blog',
+  title: 'kiyotakali’s blog',
   // 作者信息
   author: {
-    avatar: 'https://avatars.githubusercontent.com/u/123150988?s=400&u=61225ea1289724b1fbeaea0089ebb453d7ab07f9&v=4',
-    name: 'void'
+    avatar: 'https://avatars.githubusercontent.com/u/112888202?s=400&u=9f72a38463c0dc56f264d5d12a823c17bb14628d&v=4',
+    name: 'kiyotakali'
   },
   // 站点描述
-  description: '你好，我是void,欢迎',
+  description: '你好，我是kiyotakali,欢迎',
   // 站点主题(hairy)
   theme: 'hairy',
   // or more...
@@ -21,7 +21,7 @@ export default defineSiteConfig({
   social:[
     {
       name: 'GitHub',
-      link: 'https://github.com/xjtu-wjz',
+      link: 'https://github.com/kiyotakali',
       icon: 'i-ri-github-line',
       color: '#6e5494',
     },

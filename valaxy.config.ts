@@ -41,7 +41,7 @@ export default defineConfig<ThemeConfig>({
       },
       {
         text: 'Github',
-        link: 'https://github.com/xjtu-wjz',
+        link: 'https://github.com/kiyotakali',
         icon: 'i-ri-github-fill',
       },
     ],
