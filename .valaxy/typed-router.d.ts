@@ -32,6 +32,7 @@ declare module 'vue-router/auto-routes' {
     '/page/[page]': RouteRecordInfo<'/page/[page]', '/page/:page', { page: ParamValue<true> }, { page: ParamValue<false> }>,
     '/posts/周记 week 1': RouteRecordInfo<'/posts/周记 week 1', '/posts/周记 week 1', Record<never, never>, Record<never, never>>,
     '/posts/hello-valaxy': RouteRecordInfo<'/posts/hello-valaxy', '/posts/hello-valaxy', Record<never, never>, Record<never, never>>,
+    '/posts/Learning From Positive and Unlabeled Data-A Survey': RouteRecordInfo<'/posts/Learning From Positive and Unlabeled Data-A Survey', '/posts/Learning From Positive and Unlabeled Data-A Survey', Record<never, never>, Record<never, never>>,
     '/tags/': RouteRecordInfo<'/tags/', '/tags', Record<never, never>, Record<never, never>>,
     '/tags/[tag]/': RouteRecordInfo<'/tags/[tag]/', '/tags/:tag', { tag: ParamValue<true> }, { tag: ParamValue<false> }>,
   }

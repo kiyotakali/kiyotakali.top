@@ -9,7 +9,7 @@ import { addonMeting } from 'valaxy-addon-meting'
  */
 export default defineConfig<ThemeConfig>({
   theme: 'hairy',
-  url: 'http://www.kiyotakali.top/',
+  url: 'http://kiyotakali.top/',
   themeConfig:{
     theme: 'dark',
     
