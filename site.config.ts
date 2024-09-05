@@ -4,7 +4,7 @@ import { defineSiteConfig } from 'valaxy'
 export default defineSiteConfig({
   
   lang: 'zh-CN',
-  url: 'http://www.void2024.top/',
+  url: 'http://kiyotakali.top/',
   // 站点标题
   title: 'void’s blog',
   // 作者信息
