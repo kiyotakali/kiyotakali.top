@@ -5,7 +5,7 @@ excerpt: "关于我"
 waline: true
 ---
 
-斯人若彩虹，遇上方知有。陌生人，Ciallo～(∠・ω< )⌒☆。
+斯人若彩虹，遇上方知有。陌生人，[Ciallo～(∠・ω< )⌒☆](https://ciallo.cc/)。
 
 我是kiyotakali，emmm能找到这个网站基本上应该是熟人，但是实名上网还是不太习惯，暂时先以网名示众。
 

@@ -39,7 +39,7 @@ export default defineSiteConfig({
     },
     {
       name: 'Telegram Group',
-      link: 'https://t.me/blogszh',
+      link: '',
       icon: 'i-ri:telegram-fill',
       color: '"#0088CC'
     },
@@ -57,7 +57,7 @@ export default defineSiteConfig({
     },
     {
       name: '网易云音乐',
-      link: 'https://music.163.com/#/user/home?id=1428613796',
+      link: '',
       icon: 'i-ri-netease-cloud-music-line',
       color: '#C20C0C',
     },
