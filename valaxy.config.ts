@@ -36,7 +36,7 @@ export default defineConfig<ThemeConfig>({
       },
       {
         text: 'CV',
-        link: 'https://xjtu-wjz.github.io/',
+        link: 'https://github.com/kiyotakali',
         icon: 'i-ri-sd-card-mini-fill',
       },
       {
