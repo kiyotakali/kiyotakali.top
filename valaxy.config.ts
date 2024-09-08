@@ -60,7 +60,7 @@ export default defineConfig<ThemeConfig>({
 
 
 
-
+ 
   addons: [
     addonMeting({
       global: false,
