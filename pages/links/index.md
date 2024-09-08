@@ -1,9 +1,31 @@
 ---
-title: 我的小伙伴们
-keywords: 链接
-description: 云游的小伙伴们
-links: https://www.yunyoujun.cn/friends/links.json
-random: true
+headline: Links
+title: My Friends
+excerpt: "they are all great"
+waline: true
 ---
 
-<YunLinks :links="frontmatter.links" :random="frontmatter.random" />
+# 感谢你们的陪伴
+
+
+<br />
+<br />
+
+<hairy-links 
+  :links="[
+    {
+      name: 'kiyotakali',
+      url: 'https://www.void2024.top',
+      image: 'https://avatars.githubusercontent.com/u/123150988?v=4',
+      color: '#e9546b',
+      desc: '计试小南梁',
+    },
+    {
+      name: 'Number-L',
+      url: 'https://number-l.github.io/',
+      image: 'https://avatars.githubusercontent.com/u/112866466?v=4',
+      color: '#87cefa',
+      desc: '罗神',
+    },
+  ]"
+/>
