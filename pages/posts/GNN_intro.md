@@ -2,7 +2,7 @@
 title: GNN_intro
 date: 2024-05-01
 updated: 2024-05-01
-categories: Valaxy 笔记
+categories: 科研
 tags:
   - graph
   - 科研

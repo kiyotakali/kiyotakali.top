@@ -2,7 +2,7 @@
 title: DBA&CBA_in_graph
 date: 2024-08-01
 updated: 2024-08-01
-categories: Valaxy 笔记
+categories: 科研
 tags:
   - graph
   - backdoor
