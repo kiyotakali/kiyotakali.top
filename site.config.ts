@@ -13,7 +13,7 @@ export default defineSiteConfig({
     name: 'kiyotakali'
   },
   // 站点描述
-  description: '你好，我是kiyotakali,欢迎',
+  description: '你好，我是kiyotakali,[Ciallo～(∠・ω< )⌒☆](https://ciallo.cc/)',
   // 站点主题(hairy)
   theme: 'hairy',
   // or more...
