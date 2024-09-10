@@ -29,3 +29,22 @@ waline: true
     },
   ]"
 />
+
+# 讨论班
+
+欢迎加入研讨，如有兴趣请联系我：<2223312154@stu.xjtu.edu.cn>。
+
+<br />
+<br />
+
+<hairy-links 
+  :links="[
+    {
+      name: 'XJTU-dl seminar',
+      url: 'https://xjtu-deeplearning-seminar.github.io/dl-discussion/',
+      image: 'https://avatars.githubusercontent.com/u/168283007?s=400&v=4',
+      color: '#00ff00',
+      desc: 'xjtu 深度学习讨论班',
+    },
+  ]"
+/>
