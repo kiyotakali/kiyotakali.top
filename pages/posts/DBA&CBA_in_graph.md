@@ -3,6 +3,7 @@ title: DBA&CBA_in_graph
 date: 2024-08-01
 updated: 2024-08-01
 categories: 科研
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/3.webp
 tags:
   - graph
   - backdoor

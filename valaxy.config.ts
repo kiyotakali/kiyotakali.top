@@ -18,7 +18,6 @@ export default defineConfig<ThemeConfig>({
       description:"My name is kiyotakali, Ciallo～(∠・ω< )⌒☆.",
       images: [
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/2.webp",
-        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/3.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/4.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/atri.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/bocchi_the_rock.webp",
