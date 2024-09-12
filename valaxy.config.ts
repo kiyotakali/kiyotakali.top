@@ -21,7 +21,6 @@ export default defineConfig<ThemeConfig>({
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/bocchi_the_rock.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/color.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/genshin.webp",
-        "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/hollow_knight.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/li.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/miku1.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/miku3.webp",
@@ -29,9 +28,10 @@ export default defineConfig<ThemeConfig>({
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/water_world.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/windows.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/yireyna.webp",
-        "https://pic.axi404.top/93141803_p0.ic1wc5z17.webp",
-        "https://pic.axi404.top/93141612_p0.54xox14iok.webp",
+        "https://github.com/kiyotakali/kiyotakali.top/blob/main/pic_back/1.png",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/2.png",
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/3.png",
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/4.png",
       ]
     },
     nav: [
