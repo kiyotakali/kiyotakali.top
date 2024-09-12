@@ -2,6 +2,7 @@
 title: GNN_intro
 date: 2024-05-01
 updated: 2024-05-01
+image: https://github.com/kiyotakali/kiyotakali.top/blob/main/pic_post/ba_2.jpg
 categories: 科研
 tags:
   - graph
