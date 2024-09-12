@@ -31,7 +31,7 @@ export default defineConfig<ThemeConfig>({
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/2.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/3.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/4.webp",
-        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_post/ba_1.webp"
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_post/ba_1.webp",
       ]
     },
     nav: [
