@@ -28,10 +28,10 @@ export default defineConfig<ThemeConfig>({
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/water_world.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/windows.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/yireyna.webp",
-        "https://github.com/kiyotakali/kiyotakali.top/blob/main/pic_back/1.png",
-        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/2.png",
-        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/3.png",
-        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/4.png",
+        "https://github.com/kiyotakali/kiyotakali.top/blob/main/pic_back/1.webp",
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/2.webp",
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/3.webp",
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/4.webp",
       ]
     },
     nav: [

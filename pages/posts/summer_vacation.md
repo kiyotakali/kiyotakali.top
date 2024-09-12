@@ -2,7 +2,7 @@
 title: summer_vacation
 date: 2024-09-10
 updated: 2024-09-10
-image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/3.png
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_posy/ba_1.webp
 categories: 生活
 tags:
   - 科研
