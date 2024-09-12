@@ -20,7 +20,6 @@ export default defineConfig<ThemeConfig>({
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/atri.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/bocchi_the_rock.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/color.webp",
-        "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/genshin.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/li.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/miku1.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/miku3.webp",
@@ -28,10 +27,11 @@ export default defineConfig<ThemeConfig>({
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/water_world.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/windows.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/yireyna.webp",
-        "https://github.com/kiyotakali/kiyotakali.top/blob/main/pic_back/1.webp",
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/1.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/2.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/3.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/4.webp",
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_post/ba_1.webp"
       ]
     },
     nav: [
