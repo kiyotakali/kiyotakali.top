@@ -17,7 +17,6 @@ export default defineConfig<ThemeConfig>({
       headline:"kiyotakali's Blog",
       description:"My name is kiyotakali, Ciallo～(∠・ω< )⌒☆.",
       images: [
-        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/1.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/2.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/3.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/4.webp",
