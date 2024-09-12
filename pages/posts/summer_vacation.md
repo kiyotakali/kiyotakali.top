@@ -2,8 +2,8 @@
 title: summer_vacation
 date: 2024-09-10
 updated: 2024-09-10
-image: https://github.com/kiyotakali/kiyotakali.top/blob/main/pic_post/ba_1.webp
 categories: 生活
+image: https://github.com/kiyotakali/kiyotakali.top/blob/main/pic_post/ba_1.webp
 tags:
   - 科研
   - game

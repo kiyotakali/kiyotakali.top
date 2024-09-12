@@ -2,8 +2,8 @@
 title: GNN_intro
 date: 2024-05-01
 updated: 2024-05-01
-image: https://github.com/kiyotakali/kiyotakali.top/blob/main/pic_post/ba_2.webp
 categories: 科研
+image: https://github.com/kiyotakali/kiyotakali.top/blob/main/pic_post/ba_2.webp
 tags:
   - graph
 top: 1
