@@ -25,12 +25,8 @@ export default defineConfig<ThemeConfig>({
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/atri.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/bocchi_the_rock.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/color.webp",
-        "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/li.webp",
-        "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/miku1.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/shanjing.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/water_world.webp",
-        "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/windows.webp",
-        "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/yireyna.webp",
       ]
     },
     nav: [
