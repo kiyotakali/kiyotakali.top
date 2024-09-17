@@ -2,7 +2,7 @@
 title: GNN_intro
 date: 2024-05-01
 updated: 2024-05-01
-categories: 科研
+categories: research
 tags:
   - graph
 top: 1

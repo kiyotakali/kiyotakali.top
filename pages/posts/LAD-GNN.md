@@ -2,7 +2,7 @@
 title: LAD-GNN
 date: 2024-06-01
 updated: 2024-06-01
-categories: 科研
+categories: research
 tags:
   - graph
   - distillation

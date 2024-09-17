@@ -2,9 +2,9 @@
 title: summer_vacation
 date: 2024-09-10
 updated: 2024-09-10
-categories: 生活
+categories: life
 tags:
-  - 科研
+  - research
   - game
   - ddl
 top: 1
