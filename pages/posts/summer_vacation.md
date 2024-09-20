@@ -3,6 +3,7 @@ title: summer_vacation
 date: 2024-09-10
 updated: 2024-09-10
 categories: life
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/7.webp
 tags:
   - research
   - game
