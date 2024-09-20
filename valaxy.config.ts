@@ -23,8 +23,7 @@ export default defineConfig<ThemeConfig>({
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/bocchi_the_rock.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/shanjing.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/cateng1.webp",
-        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/cateng2.webp",
-        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/cateng3.webp",
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/leimu0.webp",
       ]
     },
     nav: [
