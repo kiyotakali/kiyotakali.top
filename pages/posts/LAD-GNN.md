@@ -3,6 +3,7 @@ title: LAD-GNN
 date: 2024-06-01
 updated: 2024-06-01
 categories: research
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/leimu0.webp
 tags:
   - graph
   - distillation
