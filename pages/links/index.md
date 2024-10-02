@@ -14,7 +14,7 @@ waline: true
 <hairy-links 
   :links="[
     {
-      name: 'kiyotakali',
+      name: 'void',
       url: 'https://www.void2024.top',
       image: 'https://avatars.githubusercontent.com/u/123150988?v=4',
       color: '#e9546b',
