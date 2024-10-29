@@ -12,17 +12,17 @@ top: 1
 为了解决之前的非侵入式后门和对抗攻击的区别问题，稍微调研了一些对抗攻击的文章，很多方法都是封装的理解了一下，具体细节没有详细给出，日后再更。
 
 ## 1、Adversarial Attack on Large Scale Graph(TKDE)
-![alt text](image-2.png)
-![alt text](image-1.png)
-![alt text](image-3.png)
+![alt text](./image-2.png)
+![alt text](./image-1.png)
+![alt text](./image-3.png)
 图1展示了针对正常节点分类任务的图对抗攻击流程。图二展现的是扰动添加的的节点集选择方法。图4展示的是整个攻击的具体流程。
 
 具体来说，首先对于一个需要误导分类的节点取它的k近邻子图作为扰动节点集并且计算梯度更新节点集，然后通过节点集内节点的扰动来实现对目标节点的分类干扰。方法主要的意义在于大大减少了时间和空间复杂度。
 
 ## 2、Simple and Efficient Partial Graph Adversarial Attack: A New Perspective(TKDE)
-![alt text](image-4.png)
+![alt text](./image-4.png)
 文章的核心观点就是进行节点级对抗攻击的时候，把所有的节点都纳入攻击范围时间和空间复杂度实在太高了。我们实际上只需要选择那么容易被攻击的节点进行攻击就可以了。详细流程如下，其实就是通过合适的方法选择节点进行攻击，然后和Surrogate Model进行交互得到最终受污染的图。
-![alt text](image-5.png)
+![alt text](./image-5.png)
 
 ## 3、Attacking Graph Convolutional Networks via Rewiring(CoRR)
 
@@ -36,7 +36,7 @@ top: 1
 
 攻击者接收一个图作为输入，可以修改图的结构以此来欺骗分类器。
 
-![alt text](image-6.png)
+![alt text](./image-6.png)
 
 ## 4、Black-Box Adversarial Attacks on Graph Neural Networks with Limited Node Access(NIPS)
 
@@ -52,7 +52,7 @@ setting是现实情况和受限的环境下，无法访问模型参数和模型�
 
 
 ## 6、Minimum Topology Attacks for Graph Neural Networks(WWW)
-![alt text](image-7.png)
+![alt text](./image-7.png)
 
 ## A Practical Adversarial Attack on Graph Neural Networks by Attacking Single Node Structure(HPCC/DSS/SmartCity/DependSys)
 
