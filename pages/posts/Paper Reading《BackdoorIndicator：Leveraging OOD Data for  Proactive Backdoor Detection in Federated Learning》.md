@@ -3,7 +3,7 @@ title: Paper Reading-《BackdoorIndicator:Leveraging OOD Data for  Proactive Bac
 date: 2024-10-28
 updated: 2024-10-28
 categories: research
-image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba13.webp
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba1.webp
 tags:
   - graph
   - ood

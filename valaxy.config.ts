@@ -18,13 +18,12 @@ export default defineConfig<ThemeConfig>({
       description:"My name is kiyotakali, Ciallo～(∠・ω< )⌒☆.",
       images: [
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/2.webp",
-        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/4.webp",
-        "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/atri.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/bocchi_the_rock.webp",
         "https://raw.githubusercontent.com/xjtu-wjz/void2004/main/pics/shanjing.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/6.webp",
         "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/9.webp",
-        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/8.webp",
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/gs1.webp",
+        "https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/gs3.webp",
       ]
     },
     nav: [
