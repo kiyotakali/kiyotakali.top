@@ -1,5 +1,5 @@
 ---
-title: Paper Reading-《BLIP-2: Bootstrapping Language-Image Pre-training  with Frozen Image Encoders and Large Language Models》
+title: Paper Reading-《BLIP-2：Bootstrapping Language-Image Pre-training  with Frozen Image Encoders and Large Language Models》
 date: 2024-11-03
 updated: 2024-11-03
 categories: research
