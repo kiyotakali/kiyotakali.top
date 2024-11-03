@@ -3,7 +3,7 @@ title: GNN_intro
 date: 2024-05-01
 updated: 2024-05-01
 categories: research
-image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/1.webp
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba6.webp
 tags:
   - graph
 top: 1
