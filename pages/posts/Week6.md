@@ -3,6 +3,7 @@ title: Week6
 date: 2024-10-17
 updated: 2024-10-17
 categories: life
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba7.webp
 tags:
   - 周记
 top: 1

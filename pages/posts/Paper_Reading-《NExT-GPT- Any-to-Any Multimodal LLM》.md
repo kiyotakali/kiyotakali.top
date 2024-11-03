@@ -3,6 +3,7 @@ title: Paper Reading-《NExT-GPT： Any-to-Any Multimodal LLM》
 date: 2024-11-02
 updated: 2024-11-02
 categories: research
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba5.webp
 tags:
   - mllm
 top: 1
