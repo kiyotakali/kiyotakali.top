@@ -1,5 +1,5 @@
 ---
-title: Paper Reading-《BackdoorIndicator:Leveraging OOD Data for  Proactive Backdoor Detection in Federated Learning》
+title: Paper Reading- Basic mllm
 date: 2024-11-05
 updated: 2024-11-05
 categories: research
