@@ -3,7 +3,7 @@ title: DBA&CBA_in_graph
 date: 2024-08-01
 updated: 2024-08-01
 categories: research
-image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba12.webp
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/elden7.webp
 tags:
   - graph
   - backdoor

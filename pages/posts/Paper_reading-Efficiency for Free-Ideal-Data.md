@@ -3,7 +3,7 @@ title: Paper Reading-《Efficiency for Free：Ideal Data Are Transportable Repre
 date: 2024-11-05
 updated: 2024-11-05
 categories: research
-image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba8.webp
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba6.webp
 tags:
   - data centric
 top: 1

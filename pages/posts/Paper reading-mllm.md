@@ -3,7 +3,7 @@ title: Paper Reading- Basic mllm
 date: 2024-11-05
 updated: 2024-11-05
 categories: research
-image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/elden2.webp
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba12.webp
 tags:
   - mllm
 top: 1
