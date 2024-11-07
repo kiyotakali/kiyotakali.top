@@ -1,5 +1,5 @@
 ---
-title: Paper Reading- Basic mllm
+title: Paper Reading- Data-centric mllm
 date: 2024-11-07
 updated: 2024-11-07
 categories: research
