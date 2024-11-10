@@ -21,6 +21,17 @@ top: 1
 
 在实现方法上如上图所示，对文本数据使用预训练模型进行encoding然后进行均值池化和L2正则化，之后在一维向量 空间中使用K-means聚类来获得同一类别下游任务对应的数据并选择每个人物对应的中心点，最后使用KCentergreedy采样来获得一个缩小的但是接近完整数据集分布的小集合。
 
+### 《From Quantity to Quality: Boosting LLM Performance with Self-Guided Data Selection for Instruction Tuning》(NAACL 2024)
+![alt text](./image-24.png)
+
+整个方法如上图分为三个部分，分别是
+- Learning from Brief Experience(就是把少量数据给模型看看然后让他学着怎么去评估样本以及配备基本的指令跟踪能力)
+- Evaluating Based on Experience(模型学会评估样本之后让他给其他样本打分)
+- Retraining from Self-Guided Experience(根据打分结果对数据进行过滤，然后正常使用这些数据微调模型)
+
+主要的创新点可能是引入了IFD(InstructionFollowing Difficulty)指标来衡量一个微调数据的难度，具体来说就是给定一个指令$I$，模型会生成一个或多个可能的响应 $(R_1, R_2, \ldots, R_n)$。这些响应可能是基于模型当前状态直接生成的，也可能是通过采样得到的多个候选响应。接下来，将每个生成的响应 $R_i$ 与目标响应 $R^*$ 进行比较。这里的目标响应是指针对给定指令的最佳或期望输出。比较可以通过计算生成响应与目标响应之间的相似度得分来实现，例如使用余弦相似度、编辑距离或其他文本相似度度量方法。根据上述比较结果，为每个生成的响应 $R_i$ 计算一个难度评分 $S_i$ 。难度评分反映了生成的响应与目标响应之间的差距。如果生成的响应与目标响应非常接近，则难度评分较低；反之，如果差距较大，则难度评分较高。最后，通过聚合所有生成响应的难度评分，计算出该指令的综合IFD值。这通常可以通过取平均值、最大值或者加权平均等方式来完成。综合IFD值越高，表示该指令对于模型来说越难执行。
+
+
 ### 《ALPAGASUS: TRAINING A BETTER ALPACA WITH FEWER DATA》(ICLR 2024, LLM)
 ![alt text](./image-20.png)
 ![alt text](./image-21.png)
