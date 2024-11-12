@@ -3,7 +3,7 @@ title: Week1
 date: 2024-09-18
 updated: 2024-09-18
 categories: life
-image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/10.webp
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/elden3.webp
 tags:
   - 周记
 top: 1

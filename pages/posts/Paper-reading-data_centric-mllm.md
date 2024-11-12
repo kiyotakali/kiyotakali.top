@@ -3,7 +3,7 @@ title: Paper Reading- Data-centric mllm
 date: 2024-11-07
 updated: 2024-11-07
 categories: research
-image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/elden2.webp
+image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba9.webp
 tags:
   - mllm
 top: 1
