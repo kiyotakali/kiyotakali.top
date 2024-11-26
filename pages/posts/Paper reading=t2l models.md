@@ -49,7 +49,7 @@ $$
 模型的优化目标如下：
 
 $$
-\begin{equation} \max_{\theta} p_{\theta}(\mathbf{x}) = \mathbb{E}_{\tau \sim S_T} \left[ \prod_{t=1}^T p_{\theta}(x_{\tau_t} | x_{\tau_{<t}}) \right], \tag{3} \end{equation}$$
+ \max_{\theta} p_{\theta}(\mathbf{x}) = \mathbb{E}_{\tau \sim S_T} \left[ \prod_{t=1}^T p_{\theta}(x_{\tau_t} | x_{\tau_{<t}}) \right]$$
 
 其中 $ S_T $ 表示索引序列 $[1, 2, \cdots, T]$ 的所有可能排列的集合，$ \tau $ 表示从 $ S_T $ 中随机采样的排列。记号 $ \tau_t $ 指代排列后的序列中的第 $ t $-th 元素，而 $ \tau_{<t} $ 表示到 $ \tau_t $ 所有前面的位置。由于模型参数 $ \theta $ 在所有采样因子化顺序中共享，因此每个token $ x_t $ 都暴露于所有可能的上下文中，并且在训练期间与其他任何token $ x_i $ 学习relationship，其中 $ i \neq t $。这允许模型有效地捕获双向上下文同时保持自回归公式化的完整性。
 
@@ -67,7 +67,7 @@ $$
 
 具体来说，他引入了扩散损失：
 $$
-\mathcal{L}(z, x) = \mathbb{E}_{\varepsilon, t} \left[ \| \varepsilon - \varepsilon_\theta(x_t | t, z) \|^2 \right].
+\mathcal{L}(z, x) = \mathbb{E}_{\varepsilon, t} \left[ \| \varepsilon - \varepsilon_\theta(x_t | t, z) \|^2 \right]
 $$
 
 这里，$\varepsilon \in \mathbb{R}^d$ 是从 $\mathcal{N}(\mathbf{0}, \mathbf{I})$ 抽取的噪声向量。噪声污染的向量 $x_t$ 定义为 $x_t = \sqrt{\bar{\alpha}_t} x + \sqrt{1-\bar{\alpha}_t} \varepsilon$，其中 $\bar{\alpha}_t$ 定义了噪声调度。$t$ 是噪声调度的时间步。噪声估计器 $\varepsilon_\theta$，由 $\theta$ 参数化，是一个小型 MLP 网络。记号 $\varepsilon_\theta(x_t | t, z)$ 表示此网络将 $x_t$ 作为输入，并且以$t$和$z$均为条件。
@@ -78,3 +78,40 @@ $$
 
 ![alt text](./image-28.png)
 ![alt text](./image-29.png)
+
+## 《Image Regeneration: Evaluating Text-to-Image Model via Generating Identical Image with Multimodal Large Language Models》
+
+文生图模型的算法和应用在快速进步，但是评估质量方面仍然并不令人满意，现有的文生图模型侧重于两种模态：**输入的文本**和**输出的图片**。
+
+该文作者认为这样进行评估本质上涉及两种模态之间的差异以及信息的不对称,下图为本文评估方法与过去其他方法的不同。
+
+![alt text](./image-30.png)
+
+评估方法的具体架构如下,应该还是比较好懂的：
+![alt text](./image-31.png)
+
+我个人的理解就是利用MLLM对图像的理解能力和文本生成能力生成标准的细粒度文本描述来用于T2I模型的图像生成任务，这既在一定程度上弥补了两种模态之间信息的不对称同时也充分保证了信息的对等。
+
+## 《Visual Autoregressive Modeling: Scalable Image Generation via Next-Scale Prediction》
+
+作者提出了视觉自回归模型(VAR)，与raster-scan扫描“下一个分辨率”不同，它将图像的自回归学习重新定义为从粗到细的“下一个尺度预测”或“下一个分辨率预测”。
+
+下图很好地展示了文本自回归模型、基于next-image-token的视觉自回归模型以及本文基于next-scale的视觉自回归模型之间的区别。
+![alt text](./image-32.png)
+
+过去基于next-token形式的自回归模型表示如下：
+$$
+p(x_1, x_2, \ldots, x_T) = \prod_{t=1}^{T} p(x_t \mid x_1, x_2, \ldots, x_{t-1})
+$$
+
+而作者将图像上的自回归建模从next-token转变next-scale。在这里，自回归单元是一个完整的映射，而不是单个token。他们开始量化特征映射 $ f \in \mathbb{R}^{h \times w \times C} $ 成为 $ K $ 阶段token映射$(r_1, r_2, \dots, r_K)$，每个映射具有越来越高的分辨率 $ h_k \times w_k $，最终得到原始特征映射的分辨率 $ h \times w $。自回归似然被表述为：
+
+$$ p(r_1, r_2, \dots, r_K) = \prod_{k=1}^{K} p(r_k \mid r_1, r_2, \dots, r_{k-1}) $$
+其中每个自回归单元 $ r_k \in [V]^{h_k \times w_k} $ 是尺度 $ k $ 上的token映射，包含 $ h_k \times w_k $ tokens，以及序列 $(r_1, r_2, \dots, r_{k-1})$ 作为 $ r_k $ 的“前缀”。在第 $ k $ 个自回归步骤中，所有分布在 $ r_k $ 中的 $ h_k \times w_k $ tokens 将被并行生成，条件是在 $ r_k $ 的前缀及其关联的第 $ k $ 位置嵌入映射上。这种“下一个尺度预测”的方法是我们定义的视觉自回归嵌入建模（VAR）的方法，如下图右侧所示。请注意，在VAR的训练过程中，使用块状因果注意力掩码确保每个 $ r_k $ 只能关注其前缀 $ r_{\leq k} $。在推理阶段，kv缓存可以使用，不需要掩码。
+![alt text](./image-33.png)
+
+
+
+Reference:
+
+本文撰写过程中除了原文及其开源代码之外还参考了[EDPL](https://zhuanlan.zhihu.com/p/692425580)和[周奕帆](https://zhuanlan.zhihu.com/p/710748815)的博客，感谢大佬的开源分享。
