@@ -1,0 +1,122 @@
+{
+    "root": {
+        "data": {
+            "id": "d5woz7nxn680",
+            "created": 1732683326831,
+            "text": "MainTopic"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "d5wozc5n6l40",
+                    "created": 1732683336609,
+                    "text": "离散化-VQ"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "d5wp2yte6680",
+                            "created": 1732683621027,
+                            "text": "可以通过引入diffusion loss将预测下一个token变为预测下一个像素来规避VQ"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "d5wozfoe14w0",
+                    "created": 1732683344273,
+                    "text": "Encoder压缩图像"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "d5woznxv5gg0",
+                    "created": 1732683362260,
+                    "text": "将二维图像转为一维序列"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "d5wozoktbko0",
+                            "created": 1732683363648,
+                            "text": "RAR通过概率r将序列随机排序实现双向注意力"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "d5wozpnn4l40",
+                    "created": 1732683365995,
+                    "text": "以next-token形式训练和生成"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "d5wp4yrlmx40",
+                            "created": 1732683777647,
+                            "text": "VAR通过将next-token转变为next-scale来引入新的生成范式"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "d5wozqd4xx40",
+                    "created": 1732683367537,
+                    "text": "Decoder复原高分辨率图像"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "d5wozrclmi80",
+                    "created": 1732683369681,
+                    "text": "评估生成质量"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "d5wp1a9ef6o0",
+                            "created": 1732683489211,
+                            "text": "FID"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "d5wp1ecwavc0",
+                            "created": 1732683498129,
+                            "text": "IS"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "d5wp1f64jig0",
+                            "created": 1732683499897,
+                            "text": "CLIP Score"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "d5wp1glzv7s0",
+                            "created": 1732683503033,
+                            "text": "通过MLLM将原始图转化为文字后输入T2L模型来评估生成图片质量和文本-图片对齐程度"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

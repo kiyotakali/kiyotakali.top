@@ -27,6 +27,10 @@ top: 1
 为了解决上述Diffusion Model和自回归模型各自的缺陷，作者提出了DART：一种将自回归模型与非马尔可夫Diffusion框架结合的模型，具体如下图所示。
 ![alt text](./image-25.png)
 
+具体来说就是用transformer预测token流的形式来模拟扩散模型反向去噪的过程。
+
+
+
 ## 《Randomized Autoregressive Visual Generation》
 
 文本数据是高度紧凑有序、含有语义意义，但是视觉数据往往更加low-level和冗余。过去关于自回归视觉模型的研究集中于将图像表示为**像素序列**，在受到最近的自回归语言模型的影响后将注意力转移到将图像建模为**离散值的tokens**,所以目标在于提高tokenization的质量以及使用现在的语言模型自回归模型架构进行训练。
@@ -104,11 +108,15 @@ $$
 p(x_1, x_2, \ldots, x_T) = \prod_{t=1}^{T} p(x_t \mid x_1, x_2, \ldots, x_{t-1})
 $$
 
-而作者将图像上的自回归建模从next-token转变next-scale。在这里，自回归单元是一个完整的映射，而不是单个token。他们开始量化特征映射 $ f \in \mathbb{R}^{h \times w \times C} $ 成为 $ K $ 阶段token映射$(r_1, r_2, \dots, r_K)$，每个映射具有越来越高的分辨率 $ h_k \times w_k $，最终得到原始特征映射的分辨率 $ h \times w $。自回归似然被表述为：
+而作者将图像上的自回归建模从next-token转变next-scale。在这里，自回归单元是一个完整的映射，而不是单个token。他们开始量化特征映射 $f \in \mathbb{R}^{h \times w \times C}$ 成为 $K$ 阶段token映射$(r_1, r_2, \dots, r_K)$，每个映射具有越来越高的分辨率 $h_k \times w_k$，最终得到原始特征映射的分辨率 $h \times w$。自回归似然被表述为：
 
 $$ p(r_1, r_2, \dots, r_K) = \prod_{k=1}^{K} p(r_k \mid r_1, r_2, \dots, r_{k-1}) $$
 其中每个自回归单元 $r_k \in [V]^{h_k \times w_k}$ 是尺度 $k$ 上的token映射，包含 $h_k \times w_k$ tokens，以及序列 $(r_1, r_2, \dots, r_{k-1})$ 作为 $r_k$ 的“前缀”。在第 $k$ 个自回归步骤中，所有分布在 $r_k$ 中的 $h_k \times w_k$ tokens 将被并行生成，条件是在 $r_k$ 的前缀及其关联的第 $k$ 位置嵌入映射上。这种“下一个尺度预测”的方法是我们定义的视觉自回归嵌入建模（VAR）的方法，如下图右侧所示。请注意，在VAR的训练过程中，使用块状因果注意力掩码确保每个 $r_k$ 只能关注其前缀 $r_{\leq k}$。在推理阶段，kv缓存可以使用，不需要掩码。
 ![alt text](./image-33.png)
+
+
+
+
 
 
 
