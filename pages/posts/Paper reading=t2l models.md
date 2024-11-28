@@ -22,12 +22,66 @@ top: 1
 
 - 缺陷的可能原因：对马尔可夫假设的依赖，该假设限制了模型只能看到上一步的生成过程，导致训练和推理过程效率低下。
 
+Diffusion models具有固定的后验分布，并通过去噪目标进行训练。他通过迭代过程以非自回归方式生成整个图像。具体来说，给定一个图像 $x_0 \in \mathbb{R}^{3 \times H \times W}$，我们定义一系列的潜变量 $x_t$ ($t = 1, \cdots, T$)，它们遵循马尔可夫过程，逐渐向原始图像 $x_0$ 添加噪声。转移概率 $q(x_t | x_{t-1})$ 和边缘概率 $q(x_t | x_0)$ 分别定义如下：
+
+$$q(x_t | x_{t-1}) = \mathcal{N}(x_t; \sqrt{1 - \beta_t} x_{t-1}, \beta_t I), \quad q(x_t | x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t} x_0, (1 - \bar{\alpha}_t) I)$$
+
+其中 $\bar{\alpha}_t = \prod_{\tau=1}^t (1 - \beta_\tau)$，$0 < \beta_t < 1$ 由噪声调度确定。该模型学习反向这一过程，使用后向模型 $p_\theta(x_{t-1} | x_t)$，旨在去除图像中的噪声。模型的训练目标是：
+
+$$ \min \mathcal{L}_{\theta}^\text{DM} = \mathbb{E}_{t \sim [1,T], x_t \sim q(x_t | x_0)} [\omega_t \cdot \| x_\theta(x_t, t) - x_0 \|_2^2]$$
+
+其中 $ x_\theta(x_t, t) $ 是时间条件化的去噪器，它学习将嘈杂样本 $x_t$ 映射到其干净版本 $x_0$; $\omega_t$ 是时间依赖的损失加权项，通常使用SNR或SNR+1。实际上，$x_t$ 可以用噪声或 v 预测重新参数化来提高性能，并可以应用于像素空间或潜在空间，由 VAE 编码器编码。然而，标准扩散模型计算效率低下，需要大量的去噪步骤和广泛的训练数据。此外，它们缺乏有效利用上下文的能力，阻碍了对复杂场景和长序列如视频的扩展性。
+
 然后介绍了类似GPT-4的**自回归模型**，目前的自回归模型研究有将基于扩散的思想进行引入，但是仍然没有充分利用Diffusion Model的渐进式去噪优势，导致生成过程中局限的全局上下文和错误传递。
+
+图像上的自回归模型与基于扩散的方法不同，这些方法通常专注于学习离散图像tokens之间的依赖关系。为了详细说明，考虑一张图像 $\boldsymbol{x} \in \mathbb{R}^{3 \times H \times W}$。首先将这张图像编码成一串离散tokens $z_{1:N} = \mathcal{E}(\boldsymbol{x})$。这些tokens被设计用于近似地重建原始图像，通过一个学习解码器 $\hat{\boldsymbol{x}} = \mathcal{D}(z_{1:N})$。然后，自回归模型通过最大化交叉熵来训练，如下所示：
+
+$$\max \mathcal{L}_{\theta}^{\mathrm{CE}} = \sum_{n=1}^{N} \log P_{\theta}\left(z_n|z_{0:n-1}\right)$$
+
+其中 $z_0$ 是特殊的开始token。在推理阶段，自回归模型首先从学到的分布中采样token，然后使用 $\mathcal{D}$ 将它们解码回图像空间。
+
+自回归模型提供了比扩散模型更显著的效率优势，通过缓存先前步骤并在单个并行前向传递中完成整个生成过程。这减少了计算开销并加速了训练和推理。然而，对量化技术的依赖可能会导致信息丢失，从而降低生成质量。此外，token预测的线性和逐步性质可能忽视全局结构，使得捕捉复杂场景或序列中的长程依赖和整体连贯性变得困难。
+
+**非马尔科夫扩散模型(NOMAD)** 学习以下带权重的ELBO损失，带有可调的 $\tilde{\omega}_t$：
+
+$$
+\max \mathcal{L}_{\theta}^{\text{NOMAD}} = \mathbb{E}_{\boldsymbol{x}_{1:T} \sim q(\boldsymbol{x}_0)} \left[ \sum_{t=1}^T \tilde{\omega}_t \cdot \log p_{\theta}(\boldsymbol{x}_{t-1}|\boldsymbol{x}_{t:T}) \right]
+$$
+
+其中 $q$ 是预定义的推断过程。这种表述与自回归模型在公式上有许多相似之处，每个token代表一个嘈杂的样本 $\boldsymbol{x}_t$。因此，很自然地用transformer实现这样的过程。
+
+然而，标准扩散模型的马尔科夫推断过程使生成器 $\theta$ 无法使用除了 $\boldsymbol{x}_t$之外的所有上下文。也就是说，即使将生成器初始化为 $p_{\theta}(\boldsymbol{x}_{t-1}|\boldsymbol{x}_{t:T})$，模型只需要 $\boldsymbol{x}_t$ 中的信息就能最好地去除 $\boldsymbol{x}_{t-1}$ 的噪声。因此，设计一个固定且非马尔科夫的推断过程 $q(\boldsymbol{x}_t|\boldsymbol{x}_{0:t-1})$ 来采样嘈杂序列 $\boldsymbol{x}_{1:T} \sim \boldsymbol{x}_0$ 至关重要。最简单的方法是对独立的噪声过程执行操作：
+
+$$
+q(\boldsymbol{x}_t|\boldsymbol{x}_{0:t-1}) = q(\boldsymbol{x}_t|\boldsymbol{x}_0) = \mathcal{N}(\boldsymbol{x}_t; \sqrt{\gamma_t} \boldsymbol{x}_0, (1-\gamma_t)\mathbf{I}), \quad \forall t \in [1, T]
+$$
+
+其中 $\gamma_t$ 表示非马尔科夫噪声调度。在实践中，也可以选择一个更复杂的非马尔科夫过程，如DDIM中所述。此外，可以证明以下命题：
+
+**命题1**：一个具有独立噪声 $\gamma_t$ 的非马尔科夫扩散过程 $\{\boldsymbol{x}_t\}_t$ 与其具有相同步数和噪声水平 $\{\overline{\alpha}_t\}_t;\{\boldsymbol{y}_t\}_t$ 的马尔科夫扩散过程之间存在双射，当其噪声水平满足 $\frac{\overline{\alpha}_t}{1-\overline{\alpha}_t} = \sum_{\tau=t}^T \frac{\gamma_{\tau}}{1-\gamma_{\tau}}$ 时，达到最大信噪比。
+
+### Denoising AutoRegressive Transformer (DART)
 
 为了解决上述Diffusion Model和自回归模型各自的缺陷，作者提出了DART：一种将自回归模型与非马尔可夫Diffusion框架结合的模型，具体如下图所示。
 ![alt text](./image-25.png)
 
-具体来说就是用transformer预测token流的形式来模拟扩散模型反向去噪的过程。
+DART，一种基于Transformer的生成模型，它实现了非马尔可夫扩散过程，并且具有独立的噪声化过程。首先，遵循DiT，我们将每个图像表示为其潜在映射，通过预训练的VAE进行patchify和flatten处理。然后，DART将生成建模为：
+
+$$ p_{\theta}(x_{t-1} | x_{t:T}) = \mathcal{N}\left(x_{t-1}; \sqrt{\gamma_{t-1}} x_{\theta}(x_{t:T}), (1 - \gamma_{t-1})I\right)$$
+
+其中 $x_{\theta}(\cdot)$ 是一个Transformer网络，它接受拼接后的序列 $x_{t:T} \in \mathbb{R}^{K(T-t)\times C}$，并预测下一个有噪图像的“均值”。可以简化之前的NOMAD方程如下：
+
+$$
+\min \mathcal{L}_{\theta}^{\text{DART}} = \mathbb{E}_{x_{1:T} \sim q(x_0)} \left[ \sum_{t=1}^T \omega_t \cdot \| x_{\theta}(x_{t:T}) - x_0 \|_2^2 \right],
+$$
+
+其中定义 $\omega_t = \frac{\gamma_{t-1}}{1-\gamma_{t-1}} \tilde{\omega}_t$ 来简化记号。类似于标准AR模型，在$ T $个去噪步骤中是并行计算的，不同步骤之间的计算共享。使用块基因果掩码来保持自回归结构（见图3(a))。
+
+从简化的NOMAD方程可以看出，目标函数与原始的Diffusion方程相似，表明DART可以像标准扩散模型一样稳健地训练。此外，通过在自回归框架内利用扩散轨迹，DART允许纳入大型语言模型的设计原则。此外，命题1指出，可以根据其关联的扩散过程选择 $\omega_t$ 。例如，对于SNR加权，$\omega_t$ 可以定义为 $\omega_t = \sum_{\tau=t}^T \frac{\gamma_\tau}{1-\gamma_\tau}$。
+
+从DART采样非常简单：只需预测均值 $x_{\theta}(x_{t:T})$，添加高斯噪声得到下一步 $\hat{x}_{t-1}$，并将该结果传递到下一次迭代。不需要复杂的求解器，无分类器引导应用于 $x_{\theta}$ 的预测。此外，KV-cache用于增强解码效率。
+
+简单来说就是用transformer预测token流的形式来模拟扩散模型反向去噪的过程。
 
 
 
