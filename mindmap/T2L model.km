@@ -3,7 +3,7 @@
         "data": {
             "id": "d5woz7nxn680",
             "created": 1732683326831,
-            "text": "MainTopic"
+            "text": "传统AR模型"
         },
         "children": [
             {
@@ -60,6 +60,14 @@
                             "id": "d5wp4yrlmx40",
                             "created": 1732683777647,
                             "text": "VAR通过将next-token转变为next-scale来引入新的生成范式"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "d5xhsull9c00",
+                            "created": 1732764640393,
+                            "text": "DART利用next-token预测形式模拟diffusion反向过程实现非马尔可夫的扩散模型"
                         },
                         "children": []
                     }
