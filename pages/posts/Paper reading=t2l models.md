@@ -1,7 +1,7 @@
 ---
 title: Paper Reading- Text-to-Image Models
-date: 2024-11-25
-updated: 2024-11-25
+date: 2024-11-28
+updated: 2024-11-28
 categories: research
 image: https://raw.githubusercontent.com/kiyotakali/kiyotakali.top/main/pic_back/ba12.webp
 tags:
