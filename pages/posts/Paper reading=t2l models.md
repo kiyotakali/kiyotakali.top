@@ -169,7 +169,7 @@ $$ p(r_1, r_2, \dots, r_K) = \prod_{k=1}^{K} p(r_k \mid r_1, r_2, \dots, r_{k-1}
 ![alt text](./image-33.png)
 
 对上述文章简单做了一个汇总和整理的导图如下：
-![alt text](./image-34.png)
+![alt text](./image-39.png)
 
 
 
